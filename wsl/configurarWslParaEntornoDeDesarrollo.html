@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Configurar WSL para Entorno de Desarrollo Web</title>
+  <link rel="icon" type="image/x-icon" href="../assets/img/windowsTerminalIcon.jpg"/>
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="../css/styles.css" rel="stylesheet" />
+</head>
+<body id="page-top">
+  <header>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">Configurar WSL para Entorno de Desarrollo Web</span>
+        <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../assets/img/windowsTerminalIcon.jpg" alt="" /></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#requisitos">Requisitos</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#instalarOhMyZsh">Instalar OhmyZsh</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#instalarPHP">Instalar PHP</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#instalarMariaDB">Instalar MariaDB</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#instalarApache">Instalar Servidor Web Apache</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#instalarPhpMyAdmin">Instalar phpMyAdmin</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#instalarComposer">Instalar Composer</a></li>        
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#instalarNodeJS">Instalar NodeJS</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#configurarAlias">Configurar alias</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#configurarWindowsTerminal">Configurar Windows Terminal</a></li>          
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#configurarIdioma">Configurar Idioma Español</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+    
+  </header>
+  
+  
+  
+  <!-- Page Content-->
+  <div class="container-fluid p-0">
+    
+    <main>
+      
+      
+      <section class="resume-section" id="inicio">
+        
+        <div class="resume-section-content">
+          
+          <article>
+            
+            <h1>Configurar WSL para entorno de desarrollo web</h1>
+            
+            <p>En este guiá te ayudare a configurar tu WSL con Ubuntu 20.04 como un entorno de desarrollador Web,
+              que contenga las siguientes características</p>
+              
+              <ul>
+                <li>OhmyZsh - Se ve bonito UwU</li>
+                <li>Servidor Apache - Servidor Web</li>
+                <li>Servidor MariaDB - Servidor de Base de datos </li>
+                <li>PhpMyAdmin - Gestor de Base de datos</li>
+                <li>Composer - Administrador de paquetes PHP</li>
+                <li>Instalador Laravel - Framework PHP</li>
+                <li>Configurar atajos para </li>
+                <ol>
+                  <li>Log de consultas MYSQL - Permite ver las consultas</li>
+                  <li>Log de errores Apache - Permite ver los errores</li>
+                  <li>Encender y apagar servidores Apache y MariaDB</li>
+                </ol>
+                
+              </ul>
+              
+              <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselIndicators" data-slide-to="2"></li>
+                  <li data-target="#carouselIndicators" data-slide-to="3"></li>
+                  <li data-target="#carouselIndicators" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img class="d-block w-100" src="../assets/img/wsl/1.jpg" alt="Composer con el instalador de Laravel">
+                    <div class="carousel-caption d-none d-md-block">
+                      <p> Composer con el instalador de Laravel</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="../assets/img/wsl/2.jpg" alt="Atajo para encender Mysql y Apache2">
+                    <div class="carousel-caption d-none d-md-block">
+                      <p> Atajo para encender Mysql y Apache2</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="../assets/img/wsl/3.jpg" alt="Log de errores del servidor Apache2">
+                    <div class="carousel-caption d-none d-md-block">
+                      <p> Log de errores del servidor Apache2</p>
+                    </div>
+                  </div>
+                  
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="../assets/img/wsl/4.jpg" alt="Log de consultas MySQL">
+                    <div class="carousel-caption d-none d-md-block">
+                      <p> Log de consultas MySQL</p>
+                    </div>
+                  </div>
+                  
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="../assets/img/wsl/5.jpg" alt="Log de consultas MySQL">
+                    <div class="carousel-caption d-none d-md-block">
+                      <p> phpMyadmin corriendo desde WSL2</p>
+                    </div>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Siguiente</span>
+                </a>
+              </div>
+              
+            </article>
+            
+          </div>
+          
+        </section>
+        
+        
+        
+        <section class="resume-section" id="requisitos">
+          
+          <article>
+            
+            <div class="resume-section-content">
+              
+              <h3>Requisitos</h3>
+              
+              <ol>
+                <li>Windows 10</li>
+                <li>WSL 2</li>
+                <li>Ubuntu 20.04</li>
+                <li>Windows Terminal - (Opcional)</li>
+              </ol>
+              
+            </div>
+            
+          </article>
+          
+        </section>
+        
+        
+        
+        <section class="resume-section" id="instalarOhMyZsh">
+          
+          <article>
+            
+            <div class="resume-section-content">
+              
+              <h3>Instalar OhMyZsh</h3>
+              
+              <p> > sudo apt install zsh </p>
+              
+              <p> > sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" </p>
+              
+            </div>
+            
+          </article>
+          
+        </section>
+        
+        
+        
+        <section class="resume-section" id="instalarPHP">
+          
+          <article>
+            
+            <div class="resume-section-content">
+              
+              <h3>Instalar PHP</h3>
+              
+              <p>¡Primero actualiza!</p> <br>
+              <p> > sudo apt update && sudo apt upgrade </p> <br>
+              <p>Instalar PHP</p> <br>
+              <p> > sudo apt-get install -y php php-tcpdf php-cgi php-pear php-mbstring libapache2-mod-php php-common php-phpseclib php-mysql zip unzip php-zip </p>
+              
+            </div>
+            
+          </article>
+          
+        </section>
+        
+        
+        <section class="resume-section" id="instalarMariaDB">
+          
+          <article>
+            
+            <div class="resume-section-content">
+              
+              <h3>Instalar MariaDB</h3>
+              
+              <p> > sudo apt install mariadb-server</p>
+              
+              <p> Inicia el servidor </p>
+              
+              <p> > sudo service mysql start </p>
+              
+              <p> Iniciar el aseguramiento del servidor</p>
+              
+              <p> > sudo mysql_secure_installation </p>
+              
+              <p>Crear usuario con todos los permisos</p>
+              
+              <p> > sudo mysql -u root </p>
+              
+              <p> CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'contraseña'; </p>
+              <p> GRANT ALL PRIVILEGES ON * . * TO 'usuario'@'localhost'; </p>
+              <p> FLUSH PRIVILEGES; </p>
+              <p> EXIT; </p>
+              
+              <h4>Activar Log de Consultas</h4>
+              
+              <p> > sudo nano /etc/mysql/my.cnf </p>  
+              
+              <p> Pega las siguientes lineas, guarda con Ctrl + O y sal del editor con Ctrl + X</p>
+              
+              <p>
+                
+                general_log_file        = /var/log/mysql/mysql.log <br>
+                general_log             = 1
+                
+              </p>
+              
+              
+              
+              
+              
+            </div>
+            
+          </article>
+        </section>
+        
+        
+        <section class="resume-section" id="instalarApache">
+          
+          <article>
+            
+            <div class="resume-section-content">
+              
+              <h3>Instalar Servidor Web Apache</h3>
+              
+              <p> > sudo apt-get -y install apache2	</p>
+              
+              <h4>Configurar permisos de escritura en /var/www/html </h4>
+              
+              <p>Este comando es para añadir tu usuario al grupo www-data, cambia el texto tu_usuario por el usuario que deseas tenga permisos</p>
+              
+              <p> > sudo usermod -a -G www-data <strong> tu_usuario </strong> </p>
+              
+              <p>Este comando le da permisos de escritura al grupo </p>
+              
+              <p>  > sudo chmod -R g+w /var/www/html </p>
+              
+              
+              <p> <strong> En caso de que, aun no te permita escribir dentro del directorio utiliza este comando y repite los dos anteriores </strong> </p>
+              
+              <p> > sudo chown -R www-data:www-data /var/www/html </p>
+              
+            </div>
+            
+          </article>
+          
+        </section>
+        
+        <section class="resume-section" id="instalarPhpMyAdmin">
+          
+          <div class="resume-section-content">
+            
+            <article>
+              
+              <h3>Instalar phpMyAdmin</h3>
+              
+              <p>Dirígete al directorio Home de Linux</p>
+              
+              <p> > cd </p>
+              
+              <p> > wget https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.tar.gz </p>
+              
+              <p> > tar xvf phpMyAdmin-5.0.4-all-languages.tar.gz  </p>
+              
+              <p> > sudo mv phpMyAdmin-*/ /usr/share/phpmyadmin </p>
+              
+              <p> > sudo mkdir -p /var/lib/phpmyadmin/tmp  </p>
+              
+              <p> > sudo chown -R www-data:www-data /var/lib/phpmyadmin </p>
+              
+              <p> > sudo mkdir /etc/phpmyadmin/ </p>
+              
+              <p> > sudo cp /usr/share/phpmyadmin/config.sample.inc.php  /usr/share/phpmyadmin/config.inc.php </p>
+              
+              <p> > sudo nano /usr/share/phpmyadmin/config.inc.php</p>
+              
+              <p> Pega las siguientes lineas, guarda con Ctrl + O y sal del editor con Ctrl + X</p>
+              
+              <p> $cfg['blowfish_secret'] = 'H2OxcGXxflSd8JwrwVlh6KW6s2rER63i'; </p>
+              
+              <p>  $cfg['TempDir'] = '/var/lib/phpmyadmin/tmp'; </p>
+              
+            </article>
+            
+            <article>
+              
+              <h4>Configurar Servidor Apache para recocer a phpMyAdmin</h4>
+              
+              <p> > sudo nano /etc/apache2/conf-enabled/phpmyadmin.conf </p>
+              
+              <p>Pega lo siguiente</p>
+              
+              <pre>
+                <xmp>
+                  
+                  
+                  
+                  Alias /phpmyadmin /usr/share/phpmyadmin
+                  
+                  <Directory /usr/share/phpmyadmin>
+                    Options SymLinksIfOwnerMatch
+                    DirectoryIndex index.php
+                    
+                    <IfModule mod_php5.c>
+                      <IfModule mod_mime.c>
+                        AddType application/x-httpd-php .php
+                      </IfModule>
+                      <FilesMatch ".+\.php$">
+                        SetHandler application/x-httpd-php
+                      </FilesMatch>
+                      
+                      php_value include_path .
+                      php_admin_value upload_tmp_dir /var/lib/phpmyadmin/tmp
+                      php_admin_value open_basedir /usr/share/phpmyadmin/:/etc/phpmyadmin/:/var/lib/phpmyadmin/:/usr/share/php/php-gettext/:/usr/share/php/php-php-gettext/:/usr/share/javascript/:/usr/share/php/tcpdf/:/usr/share/doc/phpmyadmin/:/usr/share/php/phpseclib/
+                      php_admin_value mbstring.func_overload 0
+                    </IfModule>
+                    <IfModule mod_php.c>
+                      <IfModule mod_mime.c>
+                        AddType application/x-httpd-php .php
+                      </IfModule>
+                      <FilesMatch ".+\.php$">
+                        SetHandler application/x-httpd-php
+                      </FilesMatch>
+                      
+                      php_value include_path .
+                      php_admin_value upload_tmp_dir /var/lib/phpmyadmin/tmp
+                      php_admin_value open_basedir /usr/share/phpmyadmin/:/etc/phpmyadmin/:/var/lib/phpmyadmin/:/usr/share/php/php-gettext/:/usr/share/php/php-php-gettext/:/usr/share/javascript/:/usr/share/php/tcpdf/:/usr/share/doc/phpmyadmin/:/usr/share/php/phpseclib/
+                      php_admin_value mbstring.func_overload 0
+                    </IfModule>
+                    
+                  </Directory>
+                  
+                  # Authorize for setup
+                  <Directory /usr/share/phpmyadmin/setup>
+                    <IfModule mod_authz_core.c>
+                      <IfModule mod_authn_file.c>
+                        AuthType Basic
+                        AuthName "phpMyAdmin Setup"
+                        AuthUserFile /etc/phpmyadmin/htpasswd.setup
+                      </IfModule>
+                      Require valid-user
+                    </IfModule>
+                  </Directory>
+                  
+                  # Disallow web access to directories that don't need it
+                  <Directory /usr/share/phpmyadmin/templates>
+                    Require all denied
+                  </Directory>
+                  <Directory /usr/share/phpmyadmin/libraries>
+                    Require all denied
+                  </Directory>
+                  <Directory /usr/share/phpmyadmin/setup/lib>
+                    Require all denied
+                  </Directory>
+                  
+                </xmp>
+                
+              </pre>
+              
+              
+              <p>Reinicia el Servidor Apache</p>
+              
+              <p> > sudo service apache2 restart</p>
+            </article>
+            
+          </div>
+          
+          
+          
+        </section>
+        
+        <section class="resume-section" id="instalarComposer">
+          
+          <article>
+            
+            <div class="resume-section-content">
+              
+              <h3>Instalar Composer</h3>
+              
+              <p> > php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" </p> 
+              
+              <p> > php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" </p>
+              
+              <p> > sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer </p>
+              
+              <h4>Configurar instalador Laravel de Composer</h4>
+              
+              <p> > composer global require laravel/installer </p>
+              
+              <p> Si usas Bash > nano $HOME/.bashrc  </p>
+              
+              <p> Si usas OhMyZsh  >  nano $HOME/.zshrc</p>
+              
+              <p>Pega lo siguiente</p>
+              
+              <p>export PATH="$PATH:$HOME/.config/composer/vendor/bin" </p>
+              
+              <p>Actualiza con</p>
+              
+              <p>Sí usas Bash > source $HOME/.bashrc</p>
+              
+              <p>Sí usas OhMyZsh > source $HOME/.zshrc</p>
+              
+              
+            </div> 
+            
+          </article>
+          
+        </section>
+        
+        
+        <section class="resume-section" id="instalarNodeJS">
+          
+          <article>
+            
+            <div class="resume-section-content">
+              
+              <h3>Instalar NodeJS 15</h3>
+              
+              <p> > curl -sL https://deb.nodesource.com/setup_current.x | sudo -E bash - </p>
+              
+              <p> > sudo apt-get install -y nodejs </p>
+              
+            </div>
+            
+          </article>
+          
+        </section>
+        
+        
+        <section class="resume-section" id="configurarAlias">
+          
+          <article>
+            
+            <div class="resume-section-content">
+              
+              <h3>Configurar alias</h3>
+              
+              <p> Si usas Bash > nano $HOME/.bashrc  </p>
+              
+              <p> Si usas OhMyZsh  >  nano $HOME/.zshrc</p>
+              
+              <p> Pega las siguientes lineas, guarda con Ctrl + O y sal del editor con Ctrl + X</p>
+              
+              <p> alias lq='tail -f /var/log/mysql/mysql.log' </p>
+              
+              <p> alias le='tail -f /var/log/apache2/error.log'</p>
+              
+              <p> alias startlamp='sudo service apache2 start && sudo service mysql start' </p>
+              
+              <p> alias stoplamp='sudo service apache2 stop && sudo service mysql stop' </p>
+              
+              <p>Actualiza con</p>
+              
+              <p>Sí usas Bash > source $HOME/.bashrc</p>
+              
+              <p>Sí usas OhMyZsh > source $HOME/.zshrc</p>
+              
+              <p> Info: <br>
+                
+                <strong> lq </strong> permite ver las consultas del log de Mysql  <br>
+                
+                <strong> le </strong> permite ver los errores del log del Servidor Apache <br>
+                
+                <strong> startlamp </strong> inicia los servicios Apache y MariaDB <br>
+                
+                <strong> stoplamp </strong> apaga los servicios Apache y MariaDB <br>
+                
+              </p>
+              
+            </div>
+            
+          </article>
+          
+        </section>
+        
+        <section class="resume-section" id="configurarWindowsTerminal">
+          
+          <article>
+            
+            <div class="resume-section-content">
+              
+              <h3>Configurar Windows Terminal</h3>
+              
+              <p> Abre Windows Terminal</p>
+              
+              <p> Selecciona configuración, dirígete al apartado de perfiles y pega lo siguiente </p>
+              
+              <p>"startingDirectory" : "//wsl$/Ubuntu-20.04/home/tu_usuario", </p>
+              <p>"acrylicOpacity": 0.5, </p>
+              <p>"useAcrylic": true </p>
+              
+              <p>Esta configuración, hará que al abrir la Windows Terminal, esta inicie con el directorio home de tu usuario en Linux y no
+                en el directorio de Windows como viene predeterminado, ademas activara los efectos de transparencia de la terminal en un 50%
+              </p>
+              
+              
+              
+              
+            </div>
+            
+          </article>
+          
+        </section>
+        
+        <section class="resume-section" id="configurarIdioma">
+          
+          <article>
+            
+            <div class="resume-section-content">
+              
+              <h3>Configurar idioma Español</h3>
+              
+              <p> Instala el paquete de idiomas Español</p>
+              
+              <p> >  sudo apt install language-pack-es language-pack-es-base </p>
+              
+              <p> En mi caso uso LANG=es_MX.UTF-8, siendo <strong>es_MX</strong>  por <strong>Español México</strong>, cambia estos datos según tu <strong>País</strong></p>
+              
+              <p> > sudo update-locale LANG=es_MX.UTF-8 </p>
+              
+              <p>Lista de abreviaturas disponibles del paquete Español</p>
+              
+              <p>
+                <ul>  
+                  <li> es_AR</li>
+                  <li> es_BO</li>
+                  <li> es_CL</li>
+                  <li> es_CO</li>
+                  <li> es_CR</li>
+                  <li> es_CU</li>
+                  <li> es_DO</li>
+                  <li> es_EC</li>
+                  <li> es_ES</li>
+                  <li> es_GT</li>
+                  <li> es_HN</li>
+                  <li> es_MX</li>
+                  <li> es_NI</li>
+                  <li> es_PA</li>
+                  <li> es_PE</li>
+                  <li> es_PR</li>
+                  <li> es_PY</li>
+                  <li> es_SV</li>
+                  <li> es_US</li>
+                  <li> es_UY</li>
+                  <li> es_VE</li>
+                  
+                </ul>
+                
+              </p>
+              
+            </div>
+            
+          </article>
+          
+        </section>
+        
+        
+        
+        
+      </main> 
+      
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="../js/scripts.js"></script>
+  </body>
+  </html>
+  
