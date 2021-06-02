@@ -277,6 +277,20 @@
               <p> <strong> En caso de que, aun no te permita escribir dentro del directorio utiliza este comando y repite los dos anteriores </strong> </p>
               
               <p> > sudo chown -R www-data:www-data /var/www/html </p>
+
+              <h4>Activar módulo rewrite  </h4>
+
+              <p> > sudo a2enmod rewrite </p>
+
+              <p> > sudo nano /etc/apache2/apache2.conf</p>
+
+              <p>En el apartado Directory /var/www cambiar None por All</p>
+              
+              <p>Guardar con Ctrl + O y salir con Ctrl +  X</p>
+
+              <p>Reiniciar apache 2 con</p>
+
+              <p>sudo service apache2 restart</p>
               
             </div>
             
